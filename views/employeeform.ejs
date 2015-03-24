@@ -1,0 +1,79 @@
+<% include header %>
+<% include navigation %>
+
+<p style="color:black"><i>Fill out this form to add a new employee.</i></p>
+
+
+<!-- Form Style -->
+<style>
+#form {
+	display: inline-block;
+	float: left;
+	clear: left;
+	width: 500px;
+	text-align: left;
+}
+
+#input {
+	vertical-align: bottom;
+	border: 1px solid gray;
+}
+
+
+#select {
+	vertical-align: bottom;
+	border: 1px solid gray;
+}
+
+</style>
+
+
+<div id="form">
+<form method="POST" action="<%= action %>">
+    <table id="login">
+       <tr>
+	 <td>Record Number:</td>
+         <td><input type="text" id="e_SSN" name="e_SSN" /></td>
+       </tr>
+       <tr>
+	 <td>First Name:</td>
+         <td><input type="text" id="e_FN" name="e_FN" /></td>
+       </tr>
+       <tr>
+	 <td>Last Name:</td>
+         <td><input type="text" id="e_LN" name="e_LN" /></td>
+       </tr>
+       <tr>
+	 <td>Employee Level:</td>
+	 <td>
+		<select name="level">
+		<option value="0" id="e_level" name="e_level">0</option>
+		<option value="1" id="e_level" name="e_level">1</option>
+		<option value="2" id="e_level" name="e_level">2</option>
+                <option value="3" id="e_level" name="e_level">3</option>
+		<option value="4" id="e_level" name="e_level">4</option>
+		</select>
+	</td>
+        </tr>
+      <tr>
+ 	<td>Department:</td>
+        <td>
+		<select name="department">
+		<option value="Aquatics">Aquatics</option>
+	 	<option value="Fitness Center">Fitness Center</option>
+ 		<option value="IMS">IMS</option>
+ 		<option value="Marketing">Marketing</option>
+ 		<option value="Massage">Massage</option>
+ 		<option value="Operations">Operations</option>
+      		</select>
+	</td>
+	</tr>
+  </table>
+</div>
+
+    <br>
+    <input type="submit" value="Add Employee">
+    <input type="reset" value="Clear Form">
+</form>
+
+<% include footer %>

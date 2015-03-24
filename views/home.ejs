@@ -1,0 +1,47 @@
+<% include header %>
+<% include navigation %>
+  	
+<!doctype html>
+<html>
+  <head>
+    <link href="style.css" rel="stylesheet">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#user-submit').click(function () {
+                var payload = {
+                    name: $('#user-name').val()
+                };
+
+                $.ajax({
+                    url: "/users/authenticate",
+                    type: "POST",
+                    contentType: "application/json",
+                    processData: false,
+                    data: JSON.stringify(payload),
+                    complete: function (data) {
+                        $('#output').html(data.responseText);
+                    }
+                });
+
+        <!-- Check if username exists -->
+        $('user-submit').click(function(){
+            var payload = {
+        	if: $('user-list').val(),
+	    };
+	});
+        });
+    </script>
+ 
+
+
+    <p>If you have an existing account, please enter your login information.</p>
+    Username:     <input id="user-name" type="text" />
+    Password:     <input id="password"  type="password"/>
+    <input id="user-submit" type="submit" />
+    <p id="output"></p>
+</div>
+</html>
+
+<% var hideBackLink = true; %>
+<% include footer %>

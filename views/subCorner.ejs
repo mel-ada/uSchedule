@@ -1,0 +1,30 @@
+
+<% include header %>
+<% include navigation %>
+
+<h4>Choose Level</h4>
+
+     <% if(rs.length > 0) { %>
+   <form method="post" action="/level/subCorner">
+       <label for="level">Select Level:</label>
+       <select id="level" name="level">
+            <% for (var i=0; rs.length > i; i++) { %>
+             <option value="<%= rs[i].l_level %>">
+                 <%= rs[i].l_Desc %> 
+             </option>
+            <% } %>
+       </select>
+       <input type="submit">
+   </form>
+    <% } else { %>
+         No levels to display.
+    <% } %>
+
+      <br>
+      <a href="/employee/level">Which level am I?</a>
+
+
+
+
+<% include footer %>
+</p>

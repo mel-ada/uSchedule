@@ -1,0 +1,27 @@
+{
+  "name": "uSchedule",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.12.2",
+    "connect": "^3.3.5",
+    "ejs": "^2.3.1",
+    "express": "^4.12.3",
+    "mysql": "^2.5.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/morelme/3_5_uSchedule.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/morelme/3_5_uSchedule/issues"
+  },
+  "homepage": "https://github.com/morelme/3_5_uSchedule"
+}
