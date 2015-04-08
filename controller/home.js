@@ -27,6 +27,18 @@ router.post('/displayEmployeeData', function(req, res) {
     res.render('displayEmployeeData.ejs', req.body );
 });
 
+
+// Availability Table                                                                                                         
+router.get('/enterAvailability', function(req, res){
+    res.render('enterAvailability.ejs', {action: '/displayEmployeeData'});
+});
+
+router.post('/displayEmployeeData', function(req, res) {
+    console.log(req.body);
+    res.render('displayEmployeeData.ejs', req.body );
+});
+
+
 // Department Table
 router.get('/DepartmentForm', function(req, res){
     res.render('departmentform.ejs', {action: '/displayDepartmentData'});

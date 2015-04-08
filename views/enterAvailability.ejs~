@@ -1,0 +1,151 @@
+<% include header %>
+<% include navigation %>
+
+<p style="color:black"><i>Fill out this form to enter availabitity.</i></p>
+
+
+<!-- Form Style -->
+<style>
+#form {
+	display: inline-block;
+	float: left;
+	clear: left;
+	width: 600px;
+	text-align: left;
+}
+
+#input {
+	vertical-align: bottom;
+	border: 1px solid gray;
+}
+
+
+#select {
+	vertical-align: bottom;
+	border: 1px solid gray;
+}
+
+</style>
+
+
+<div id="form">
+<form method="POST" action="<%= action %>">
+    <table id="availablity" width="1100"> 
+    <tr>	       
+    <th colspan="2">Monday     </th> 
+    <th colspan="2">Tuesday     </th>
+    <th colspan="2">Wednesday    </th>
+    <th>Thursday     </th>
+    <th>Friday     </th>
+    <th>Saturday    </th>
+    <th>Sunday</th>
+</tr>	  
+<tr>
+	 <td>6am - 9am</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+         <td>6am - 9am</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+	  <td>6am - 9am</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+         <td>6am - 9am</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td> <td>6am - 9am</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+         <td>6am - 9am</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td> <td>6am - 9am</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+        </tr>        
+
+<tr>
+         <td>9am - 12pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+         <td>9am - 12pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+          <td>9am - 12pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+         <td>9am - 12pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+	 <td>9am - 12pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+         <td>9am - 12pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+	 <td>9am - 12pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+        </tr>
+
+<tr>
+         <td>12pm - 3pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+         <td>12pm - 3pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+          <td>12pm - 3pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+         <td>12pm - 3pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+	 <td>12pm - 3pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+         <td>12pm - 3pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+	 <td>12pm - 3pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+        </tr>
+
+<tr>
+         <td>3pm - 6pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+         <td>3pm - 6pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+          <td>3pm - 6pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+         <td>3pm - 6pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+	 <td>3pm - 6pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+         <td>3pm - 6pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+	 <td>3pm - 6pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+        </tr>
+
+<tr>
+         <td>6pm - 9pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+         <td>6pm - 9pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+          <td>6pm - 9pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+         <td>6pm - 9pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+	 <td>6pm - 9pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+         <td>6pm - 9pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+	 <td>6pm - 9pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+        </tr>
+
+<tr>
+         <td>9pm - 12pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+         <td>9pm - 12pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+          <td>9pm - 12pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+         <td>9pm - 12pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td> 
+	 <td>9pm - 12pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+         <td>9pm - 12pm</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+	  <td>9pm - 12am</td>
+         <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>
+        </tr>
+
+         </table>
+</div>
+
+    <br>
+    <input type="submit" value="Add Employee">
+    <input type="reset" value="Clear Form">
+</form>
+
+<% include footer %>
