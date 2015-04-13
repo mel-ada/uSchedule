@@ -13,8 +13,8 @@ router.get('/all', function (req, res) {
 });
 
 /* View about page */
-router.get('/about', function(req, res) {
-    res.render('displayAboutPage.ejs', {action: '/employee/about'});
+router.get('/home', function(req, res) {
+    res.render('home.ejs', {action: '/employee/home'});
 });
 
 // Create Employee  Form

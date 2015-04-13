@@ -1,47 +1,53 @@
 <% include header %>
-<% include navigation %>
-  	
-<!doctype html>
-<html>
-  <head>
-    <link href="style.css" rel="stylesheet">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#user-submit').click(function () {
-                var payload = {
-                    name: $('#user-name').val()
-                };
 
-                $.ajax({
-                    url: "/users/authenticate",
-                    type: "POST",
-                    contentType: "application/json",
-                    processData: false,
-                    data: JSON.stringify(payload),
-                    complete: function (data) {
-                        $('#output').html(data.responseText);
-                    }
-                });
+<html lang="en-US">
+<head>
+<style>
+.level {
+    float: left;
+    margin: 5px;
+    padding: 15px;
+    width: 300px;
+    height: 200px;
+    border: 1px solid black;
+} 
 
-        <!-- Check if username exists -->
-        $('user-submit').click(function(){
-            var payload = {
-        	if: $('user-list').val(),
-	    };
-	});
-        });
-    </script>
- 
+.side {
+    line-height:30px;
+    background-color:#white;
+    height:300px;
+    width:150px;
+    float:left;
+    padding:5px;	      
+}
+</style>
+</head>
 
-
-    <p>If you have an existing account, please enter your login information.</p>
-    Username:     <input id="user-name" type="text" />
-    Password:     <input id="password"  type="password"/>
-    <input id="user-submit" type="submit" />
-    <p id="output"></p>
+<div class="side">
 </div>
-</html>
 
-<% var hideBackLink = true; %>
+
+
+<body>
+  <a href="/login">
+  <div class="level">
+    <h2>Management</h2>
+    <p>Click here if you are a manager.</p>
+  </div> </a>
+  
+  <a href="/login">
+  <div class="level">
+    <h2>Employee</h2>
+    <p>Click here if you are a current employee.</p>
+  </div> </a>
+
+  <a href="/employee/create"
+  <div class="level">
+    <h2>Others</h2>
+    <p>Click here if you are a new employee.</p>
+  </div> </a>
+
+</body>
+
+
 <% include footer %>

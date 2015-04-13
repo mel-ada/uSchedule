@@ -17,6 +17,19 @@ router.get('/', function(req, res){
     res.render('home');
 });
 
+//Login
+router.get('/login', function(req, res){
+    res.render('login.ejs', {action: '/displayLoginData'});
+});
+
+router.post('/displayLoginData', function(req, res) {
+    console.log(req.body);
+    res.render('displayLoginData.ejs', req.body );
+});
+
+
+
+
 // Employee Table 
 router.get('/employeeForm', function(req, res){
     res.render('employeeform.ejs', {action: '/displayEmployeeData'});
