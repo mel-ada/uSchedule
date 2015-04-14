@@ -28,6 +28,28 @@
 </style>
 
 
+
+ <% if(rs.length > 0) { %> 
+
+
+<table>
+  <% for (var i=0; rs.length > i; i++) { %>
+             <tr>
+             <th> <%= rs[i].sh_Day %> </th>
+             </tr>
+	     <tr>
+	     <td> <%= rs[i].sh_startTime %> </td>
+             <td> <%= rs[i].sh_endTime %> </td>
+	     <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>             
+	     </tr>
+            </tr>
+        <% } %>
+</table>
+  <% } else { %>
+        Manager has not entered any shifts to work.
+  <% } %>
+
+
 <div id="form">
 <form method="POST" action="<%= action %>">
     <table id="availablity" width="1100"> 
