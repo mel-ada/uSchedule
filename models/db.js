@@ -457,7 +457,7 @@ exports.Schedule = function(userInfo, callback) {
 
 
 //Display enter availability page                                                                                   
-exports.EnterAvailability = function(userInfo, callback) {
+exports.EnterAvailability = function(callback) {
     var query = 'SELECT sh_Day, sh_startTime, sh_endTime, sh_stnName from P2Shift;'; 
 
 
@@ -469,8 +469,7 @@ exports.EnterAvailability = function(userInfo, callback) {
                 callback(true);
                 return;
             }
-            console.log(result);
-	    callback(false, result);
+            callback(false, result);
         }
     );
 }

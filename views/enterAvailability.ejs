@@ -33,13 +33,23 @@
 
 
 <table>
+
+    <tr>
+    <th colspan="2">Monday     </th>
+    <th colspan="2">Tuesday     </th>
+    <th colspan="2">Wednesday    </th>
+    <th colspan="2">Thursday     </th>
+    <th colspan="2">Friday     </th>
+    <th colspan="2">Saturday    </th>
+    <th colspan="2">Sunday</th>
+</tr>
   <% for (var i=0; rs.length > i; i++) { %>
-             <tr>
-             <th> <%= rs[i].sh_Day %> </th>
-             </tr>
+     
+     
+     
 	     <tr>
-	     <td> <%= rs[i].sh_startTime %> </td>
-             <td> <%= rs[i].sh_endTime %> </td>
+	     <td> <%= formatTime(rs[i].sh_startTime) %> </td>
+             <td> <%= formatTime(rs[i].sh_endTime) %> </td>
 	     <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>             
 	     </tr>
             </tr>
@@ -51,7 +61,7 @@
 
 
 <div id="form">
-<form method="POST" action="<%= action %>">
+<form method="POST" action="">
     <table id="availablity" width="1100"> 
     <tr>	       
     <th colspan="2">Monday     </th> 
