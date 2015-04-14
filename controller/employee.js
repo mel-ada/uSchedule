@@ -19,15 +19,19 @@ router.get('/home', function(req, res) {
 
 // Create Employee  Form
 router.get('/create', function(req, res){
-    db.getEmpoyeeLevels(function(err, levels) {
+    db.getEmployeeLevels(function(err, levels) {
         console.log(levels);
-        res.render('employeeform.ejs', {action: '/employee/create', levels: levels});
+    	
+	db.GetAllDepartment(function(err, department) {
+	    console.log(department);
+            res.render('employeeform.ejs', {action: '/employee/create', levels: levels, department: department});
     });
+  });
 });
 
 // Save Employee  to the Database
 router.post('/create', function (req, res) {
-    db.Insert( req.body, function (err, result) {
+    db.InsertEmployee( req.body, function (err, result) {
             if (err) throw err;
 
             if(result.affectedRows != 0 ) {
@@ -35,8 +39,8 @@ router.post('/create', function (req, res) {
 		    e_SSN: req.body.e_SSN,
 		    e_FN: req.body.e_FN,
                     e_LN: req.body.e_LN,
-                    e_level: req.body.e_level,
-		    e_dName: req.body.e_dName
+                    e_level: req.body.levels,
+		    e_dName: req.body.department
                 };
                 res.render('displayEmployeeData.ejs', placeHolderValues);
             }
