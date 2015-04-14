@@ -7,29 +7,6 @@ var db   = require('../models/db');
 
 
 
-router.get('/viewSchedule', function(req, res){
-        db.EmployeeSSN(function (err, result) {
-            if (err) throw err;
-        res.render('viewSchedule.ejs', {rs: result});
-    }
-    );
-});
-
-
-router.post('/viewSchedule', function (req, res) {
-    db.Schedule( req.body, function (err, result) {
-            if (err) {
-                throw err;
-            }
-                res.render('employeeSchedule.ejs', {rs: result});
-            }
-    );
-});
-
-
-
-
-
 
 router.get('/enterAvailability', function(req, res){
         db.EnterAvailability(function (err, result) {
@@ -55,7 +32,7 @@ router.get('/enterAvailability', function(req, res){
 });
 
 
-router.post('/viewAvailability', function (req, res) {
+router.post('/updateAvailability', function (req, res) {
     db.ViewAvailability( req.body, function (err, result) {
             if (err) {
                 throw err;

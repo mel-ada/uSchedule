@@ -32,15 +32,17 @@
  <% if(rs.length > 0) { %> 
 
 
+<div id="form">
+<form method="POST" action="enterAvailability/viewAvailability">
 <table>
 
     <tr>
-    <th colspan="2">Monday     </th>
-    <th colspan="2">Tuesday     </th>
-    <th colspan="2">Wednesday    </th>
-    <th colspan="2">Thursday     </th>
-    <th colspan="2">Friday     </th>
-    <th colspan="2">Saturday    </th>
+    <th colspan="2">Monday</th>
+    <th colspan="2">Tuesday</th>
+    <th colspan="2">Wednesday</th>
+    <th colspan="2">Thursday</th>
+    <th colspan="2">Friday</th>
+    <th colspan="2">Saturday</th>
     <th colspan="2">Sunday</th>
 </tr>
   <% for (var i=0; rs.length > i; i++) { %>
@@ -59,17 +61,22 @@
         Manager has not entered any shifts to work.
   <% } %>
 
+    <br>
+    <input type="submit" value="Add Employee">
+    <input type="reset" value="Clear Form">
+</form>
+
 
 <div id="form">
 <form method="POST" action="">
     <table id="availablity" width="1100"> 
     <tr>	       
-    <th colspan="2">Monday     </th> 
-    <th colspan="2">Tuesday     </th>
-    <th colspan="2">Wednesday    </th>
-    <th colspan="2">Thursday     </th>
-    <th colspan="2">Friday     </th>
-    <th colspan="2">Saturday    </th>
+    <th colspan="2">Monday</th> 
+    <th colspan="2">Tuesday</th>
+    <th colspan="2">Wednesday</th>
+    <th colspan="2">Thursday</th>
+    <th colspan="2">Friday</th>
+    <th colspan="2">Saturday</th>
     <th colspan="2">Sunday</th>
 </tr>	  
 <tr>
