@@ -54,7 +54,7 @@ exports.Gete_SSN = function(employeeInfo, callback) {
     );
 };
 
-exports.getEmpoyeeLevels = function(callback) {
+exports.getEmployeeLevels = function(callback) {
     var query = 'SELECT * from P2Level';
     connection.query(query, function(err, result) {
         if (err) {
@@ -110,7 +110,7 @@ exports.Insert = function(employeeInfo, callback) {
 
 
 // Insert an employee
-exports.Insert = function(employeeInfo, callback) {
+exports.InsertEmployee = function(employeeInfo, callback) {
     console.log(employeeInfo);
     var query = 'INSERT INTO P2Employee (e_SSN, e_FN, e_LN, e_Level, e_dName) VALUES (\'' 
 	+ employeeInfo.e_SSN 
@@ -119,9 +119,9 @@ exports.Insert = function(employeeInfo, callback) {
 	+ '\', \'' 
  	+ employeeInfo.e_LN
 	+ '\', \''
-	+ employeeInfo.e_Level
+	+ employeeInfo.level
 	+ '\', \''
-	+ employeeInfo.e_dName
+	+ employeeInfo.department
 	+ '\');';
     console.log(query);
     connection.query(query,
@@ -138,8 +138,9 @@ exports.Insert = function(employeeInfo, callback) {
 
 //-----------------------------------------------------------------
 //DEPARTMENT TABLE
+
 exports.GetAllDepartment = function(callback) {
-    connection.query('Select d_name, d_location FROM P2Department',
+    connection.query('Select * FROM P2Department',
         function (err, result) {
             if(err) {
                 console.log(err);
@@ -149,7 +150,8 @@ exports.GetAllDepartment = function(callback) {
             callback(false, result);
         }
     );
-}
+};
+
 
 exports.Insert = function(departmentInfo, callback) {
     console.log(departmentInfo);

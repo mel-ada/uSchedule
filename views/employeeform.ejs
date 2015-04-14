@@ -29,7 +29,7 @@
 
 
 <div id="form">
-<form method="POST" action="<%= action %>">
+    <form method="POST" action="/employee/create">
     <table id="login">
        <tr>
 	 <td>Record Number:</td>
@@ -47,16 +47,11 @@
 	 <td>Employee Level:</td>
 	 <td>
 		<select name="level">
-            <% for (var i = 0; i < levels.length; i++) { %>
-                <option value='<%= levels[i].l_level %>'>
-                    <%= levels[i].l_Desc %>
-                </option>
-            <% } %>
-		<option value="0" id="e_level" name="e_level">0</option>
-		<option value="1" id="e_level" name="e_level">1</option>
-		<option value="2" id="e_level" name="e_level">2</option>
-                <option value="3" id="e_level" name="e_level">3</option>
-		<option value="4" id="e_level" name="e_level">4</option>
+            	<% for (var i = 0; i < levels.length; i++) { %>
+                    <option value='<%= levels[i].l_level %>'>
+                    	<%= levels[i].l_Desc %>
+                    </option>
+            	<% } %>
 		</select>
 	</td>
         </tr>
@@ -64,13 +59,12 @@
  	<td>Department:</td>
         <td>
 		<select name="department">
-		<option value="Aquatics">Aquatics</option>
-	 	<option value="Fitness Center">Fitness Center</option>
- 		<option value="IMS">IMS</option>
- 		<option value="Marketing">Marketing</option>
- 		<option value="Massage">Massage</option>
- 		<option value="Operations">Operations</option>
-      		</select>
+      		<% for (var i = 0; i < department.length; i++) { %>
+		    <option value='<%= department[i].d_name %>'>
+			<%= department[i].d_name %>
+		    </option>
+		<% } %>
+		</select>
 	</td>
 	</tr>
   </table>
