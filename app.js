@@ -12,6 +12,7 @@ var level = require('./controller/level');
 var department = require('./controller/department');
 var station = require('./controller/station');
 var employeeshift = require('./controller/employeeshift');
+var enterAvailability = require('./controller/availability');
 
 // initialize express web application framework
 // http://expressjs.com/
@@ -41,6 +42,7 @@ app.use('/level', level);
 app.use('/department', department);
 app.use('/station', station);
 app.use('/employeeshift', employeeshift);
+app.use('/enterAvailability', enterAvailability);
 
 app.set('port', 2000);
 app.listen(app.get('port'));
