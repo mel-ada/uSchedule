@@ -19,7 +19,10 @@ router.get('/home', function(req, res) {
 
 // Create Employee  Form
 router.get('/create', function(req, res){
-    res.render('employeeform.ejs', {action: '/employee/create'});
+    db.getEmpoyeeLevels(function(err, levels) {
+        console.log(levels);
+        res.render('employeeform.ejs', {action: '/employee/create', levels: levels});
+    });
 });
 
 // Save Employee  to the Database

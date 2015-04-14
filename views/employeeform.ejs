@@ -47,6 +47,11 @@
 	 <td>Employee Level:</td>
 	 <td>
 		<select name="level">
+            <% for (var i = 0; i < levels.length; i++) { %>
+                <option value='<%= levels[i].l_level %>'>
+                    <%= levels[i].l_Desc %>
+                </option>
+            <% } %>
 		<option value="0" id="e_level" name="e_level">0</option>
 		<option value="1" id="e_level" name="e_level">1</option>
 		<option value="2" id="e_level" name="e_level">2</option>

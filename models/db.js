@@ -52,7 +52,18 @@ exports.Gete_SSN = function(employeeInfo, callback) {
             callback(false, result);
         }
     );
-}
+};
+
+exports.getEmpoyeeLevels = function(callback) {
+    var query = 'SELECT * from P2Level';
+    connection.query(query, function(err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            callback(null, result);
+        }
+    });
+};
 
 // Display all Employees
 exports.GetAllEmployee = function(callback) {
