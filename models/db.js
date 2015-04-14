@@ -463,6 +463,53 @@ exports.Schedule = function(userInfo, callback) {
 }
 
 
+
+
+
+
+//Display enter availability page                                                                                   
+exports.EnterAvailability = function(callback) {
+    var query = 'SELECT sh_Day, sh_startTime, sh_endTime, sh_stnName from P2Shift;'; 
+
+
+    console.log(query);
+    connection.query(query,
+        function (err, result) {
+            if(err) {
+                console.log(err);
+                callback(true);
+                return;
+            }
+            callback(false, result);
+        }
+    );
+}
+
+
+
+
+//Display view availability page, still need to make table in database so syntax is a placeholder                                                                                                                                 
+exports.ViewAvailability = function(userInfo, callback) {
+    var query = 'SELECT sh_Day, sh_startTime, sh_endTime, sh_stnName from P2Shift;';
+
+
+    console.log(query);
+    connection.query(query,
+        function (err, result) {
+            if(err) {
+                console.log(err);
+                callback(true);
+                return;
+            }
+            callback(false, result);
+        }
+    );
+}
+
+
+
+
+
 //Select the name of an employee based on their SSN (to make sure no ID's are visible to the user)
 exports.EmployeeSSN = function(callback) {
     var query = 'SELECT e_SSN, e_FN, e_LN from P2Employee;';
