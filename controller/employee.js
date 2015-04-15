@@ -17,7 +17,7 @@ router.get('/home', function(req, res) {
     res.render('home.ejs', {action: '/employee/home'});
 });
 
-// Create Employee  Form
+// Create form used by managers only.
 router.get('/create', function(req, res){
     db.getEmployeeLevels(function(err, levels) {
         console.log(levels);
@@ -28,6 +28,22 @@ router.get('/create', function(req, res){
     });
   });
 });
+
+
+// Create for employee's with no existing accounts
+router.get('/createNew', function(req, res){
+    db.getEmployeeLevels(function(err, levels) {
+        console.log(levels);
+
+        db.GetAllDepartment(function(err, department) {
+            console.log(department);
+            res.render('employeeformNew.ejs', {action: '/employee/createNew', levels: levels, department: department});
+    });
+  });
+});
+
+
+
 
 // Save Employee  to the Database
 router.post('/create', function (req, res) {
@@ -50,6 +66,35 @@ router.post('/create', function (req, res) {
         }
     );
 });
+
+// This is for new employees only with no existing account on the database.
+router.post('/createNew', function (req, res) {
+    db.InsertEmployee( req.body, function (err, result) {
+            if (err) throw err;
+
+            if(result.affectedRows != 0 ) {
+                var placeHolderValues = {
+                    e_SSN: req.body.e_SSN,
+                    e_FN: req.body.e_FN,
+                    e_LN: req.body.e_LN,
+                    e_level: req.body.levels,
+                    e_dName: req.body.department
+                };
+                res.render('displayEmployeeDataNew.ejs', placeHolderValues);
+            }
+            else {
+                res.send('WARNING: Employee was not inserted successfully.');
+            }
+        }
+    );
+});
+
+
+
+
+
+
+
 
 router.get('/', function (req, res) {
     console.log(req.query)

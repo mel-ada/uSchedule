@@ -1,0 +1,52 @@
+<!-- This form is for new employees who have no existing account only. -->
+
+
+<% include header %>
+<% include styleTable %>
+
+<div id="nav">
+<ul>
+    <a href="/employee/home">Home</a><br>
+</ul>
+</div>
+
+<div id="section">
+
+<div>
+    <h2>Your account was created successfully.</h2>
+    Username:     <input id="user-name" type="text" />
+    Password:     <input id="password"  type="password"/>
+    <input id="user-submit" type="submit" />
+    <p id="output"></p>
+</div>
+
+<style>
+#sep {
+    height: 2px;
+    background: #D1F0FF;
+    width: 1300px;
+    margin: 0px -25px;
+}
+</style>
+
+<div id="sep"> </div>
+<br>
+<br>
+
+    <table id="login">
+        <tr><td>First Name:</td>
+        <td><b><%= e_FN %></b></td>
+        </tr>
+        <tr><td>Last Name:</td>
+        <td><b><%= e_LN %></b></td>
+        </tr>
+        <tr><td>Employee Level:</td>
+        <td><b><%= e_level %></b></td>
+        </tr>
+        <tr><td>Department:</td>
+        <td><b><%= e_dName %></b></td>
+        </tr>
+    </table>
+</div>
+
+<% include footer %>
