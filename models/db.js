@@ -252,6 +252,51 @@ exports.Getsh_idShift = function(sh_idShift, callback) {
     );
 }
 
+//--------------------------------------------------------------------------------------
+// AVAILABILITY
+
+//Display enter availability page                                                                                         
+exports.EnterAvailability = function(callback) {
+    var query = 'SELECT a_Day, a_StartTime, a_EndTime from P2Availability;';
+
+
+    console.log(query);
+    connection.query(query,
+        function (err, result) {
+            if(err) {
+                console.log(err);
+                callback(true);
+                return;
+            }
+            callback(false, result);
+        }
+    );
+}
+
+
+
+
+//Select availability for specific employee
+//Copied from Employee Shift Schedule function, Not sure where userInfo.recNumber comes from                                                                               
+exports.ViewAvailability = function(userInfo, callback) {
+    var query = 'SELECT a_Day, a_StartTime, a_EndTime from P2Availability JOIN P2EmployeeAvailability ON P2Availability.a_ID = P2EmployeeAvailability.ea_ID JOIN P2Employee ON P2EmployeeAvailability.a_SSN = P2Employee.e_SSN WHERE P2Employee.e_SSN =' +
+    userInfo.recNumber + ';';
+    console.log(query);
+    connection.query(query,
+		     function (err, result) {
+			 if(err) {
+			     console.log(err);
+			     callback(true);
+			     return;
+			 }
+			 callback(false, result);
+		     }
+		    );
+}
+
+
+
+
 
 
 // -------------------------------------------------------------------------------------
@@ -435,49 +480,6 @@ exports.Schedule = function(userInfo, callback) {
     );
 }
 
-
-
-
-
-
-//Display enter availability page                                                                                   
-exports.EnterAvailability = function(callback) {
-    var query = 'SELECT sh_Day, sh_startTime, sh_endTime, sh_stnName from P2Shift;'; 
-
-
-    console.log(query);
-    connection.query(query,
-        function (err, result) {
-            if(err) {
-                console.log(err);
-                callback(true);
-                return;
-            }
-            callback(false, result);
-        }
-    );
-}
-
-
-
-
-//Display view availability page, still need to make table in database so syntax is a placeholder                                                                                                                                 
-exports.ViewAvailability = function(userInfo, callback) {
-    var query = 'SELECT sh_Day, sh_startTime, sh_endTime, sh_stnName from P2Shift;';
-
-
-    console.log(query);
-    connection.query(query,
-        function (err, result) {
-            if(err) {
-                console.log(err);
-                callback(true);
-                return;
-            }
-            callback(false, result);
-        }
-    );
-}
 
 
 
