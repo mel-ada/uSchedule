@@ -1,7 +1,24 @@
 <% include header %>
 <% include navigation %>
+<% include styleTable %>
 
-    <p style="color:blue"><b>The employee was successfully added.</b></p>
+<div>
+    <h2>Employee was successfully added to database.</h2>
+</div>
+
+<style>
+#sep {
+    height: 2px;
+    background: #D1F0FF;
+    width: 1300px;
+    margin: 0px -25px;
+}
+</style>
+
+<div id="sep"> </div>
+<br>
+<br>
+
     <table id="login">
         <tr><td>First Name:</td>
         <td><b><%= e_FN %></b></td>

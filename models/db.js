@@ -40,7 +40,7 @@ connection.query('CREATE DATABASE IF NOT EXISTS mmorel', function (err) {
 
 // Display one employee (by entering SSN)
 exports.Gete_SSN = function(employeeInfo, callback) {
-    var query = 'Select e_FN, e_LN, e_Level, e_dName from P2Employee WHERE e_SSN=' + landmarkInfo.e_SSN + ';';
+    var query = 'Select e_FN, e_LN, e_level, e_dName from P2Employee WHERE e_SSN=' + landmarkInfo.e_SSN + ';';
     console.log(query);
     connection.query(query,
         function (err, result) {
@@ -53,6 +53,7 @@ exports.Gete_SSN = function(employeeInfo, callback) {
         }
     );
 };
+
 
 exports.getEmployeeLevels = function(callback) {
     var query = 'SELECT * from P2Level';
@@ -67,8 +68,8 @@ exports.getEmployeeLevels = function(callback) {
 
 // Display all Employees
 exports.GetAllEmployee = function(callback) {
-    connection.query('SELECT e_FN, e_LN, e_Level, e_dName from P2Employee',
-        function (err, result) {
+    connection.query('SELECT e_FN, e_LN, e_level, e_dName from P2Employee',
+	function (err, result) {
             if(err) {
                 console.log(err);
                 callback(true);
@@ -79,47 +80,17 @@ exports.GetAllEmployee = function(callback) {
     );
 }
 
-exports.Insert = function(employeeInfo, callback) {
-    console.log(employeeInfo);
-    var query = 'INSERT INTO P2Employee(e_SSN, e_FN, e_LN, e_level, e_dName) VALUES (\''
-        + employeeInfo.e_SSN
-        + '\', \'' 
-	+ employeeInfo.e_FN
-        + '\', \'' 
-	+ employeeInfo.e_LN
-        + '\', \'' 
-	+ employeeInfo.e_level
-        + '\', \'' 
-	+ employeeInfo.e_dName
-        + '\');';
-    console.log(query);
-    connection.query(query,
-        function (err, result) {
-            if(err) {
-                console.log(err);
-                callback(true);
-                return
-            }
-            callback(false, result);
-        }
-    );
-}
-
-
-
-
-
 // Insert an employee
 exports.InsertEmployee = function(employeeInfo, callback) {
     console.log(employeeInfo);
-    var query = 'INSERT INTO P2Employee (e_SSN, e_FN, e_LN, e_Level, e_dName) VALUES (\'' 
+    var query = 'INSERT INTO P2Employee (e_SSN, e_FN, e_LN, e_level, e_dName) VALUES (\'' 
 	+ employeeInfo.e_SSN 
 	+ '\', \'' 
 	+ employeeInfo.e_FN 
 	+ '\', \'' 
  	+ employeeInfo.e_LN
-	+ '\', \''
-	+ employeeInfo.level
+	+ '\', \'' 
+	+ employeeInfo.levels
 	+ '\', \''
 	+ employeeInfo.department
 	+ '\');';

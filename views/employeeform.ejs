@@ -1,76 +1,74 @@
 <% include header %>
 <% include navigation %>
+<% include styleForm %>
 
-<p style="color:black"><i>Fill out this form to add a new employee.</i></p>
+<div>
+    <h2>Sign Up </h2>
+    <p>Fill out this form to add a new employee.</p>
+</div>
 
-
-<!-- Form Style -->
 <style>
-#form {
-	display: inline-block;
-	float: left;
-	clear: left;
-	width: 500px;
-	text-align: left;
+#sep {
+    height: 2px;
+    background: #D1F0FF;
+    width: 1300px;
+    margin: 0px -25px; 
 }
-
-#input {
-	vertical-align: bottom;
-	border: 1px solid gray;
-}
-
-
-#select {
-	vertical-align: bottom;
-	border: 1px solid gray;
-}
-
 </style>
 
+<div id="sep"> </div>
+<br>
+<br>
 
 <div id="form">
     <form method="POST" action="/employee/create">
     <table id="login">
-       <tr>
-	 <td>Record Number:</td>
-         <td><input type="text" id="e_SSN" name="e_SSN" /></td>
-       </tr>
-       <tr>
-	 <td>First Name:</td>
-         <td><input type="text" id="e_FN" name="e_FN" /></td>
-       </tr>
-       <tr>
-	 <td>Last Name:</td>
-         <td><input type="text" id="e_LN" name="e_LN" /></td>
-       </tr>
-       <tr>
-	 <td>Employee Level:</td>
-	 <td>
-		<select name="level">
+    	<tr>
+	<td>Record Number:</td>
+        <td><input type="text" id="e_SSN" name="e_SSN" /></td>
+       	</tr>
+       
+	<tr>
+	<td>First Name:</td>
+        <td><input type="text" id="e_FN" name="e_FN" /></td>
+       	</tr>
+       
+	<tr>
+	<td>Last Name:</td>
+        <td><input type="text" id="e_LN" name="e_LN" /></td>
+       	</tr>
+      
+	<tr>
+	<td>Employee Level:</td>
+	<td>
+	    <select name="levels">
             	<% for (var i = 0; i < levels.length; i++) { %>
-                    <option value='<%= levels[i].l_level %>'>
+            	    <option value='<%= levels[i].l_level %>'>
                     	<%= levels[i].l_Desc %>
-                    </option>
+            	    </option>
             	<% } %>
-		</select>
+	    </select>
 	</td>
         </tr>
-      <tr>
+      
+	<tr>
  	<td>Department:</td>
         <td>
-		<select name="department">
+	    <select name="department">
       		<% for (var i = 0; i < department.length; i++) { %>
 		    <option value='<%= department[i].d_name %>'>
 			<%= department[i].d_name %>
 		    </option>
 		<% } %>
-		</select>
+	    </select>
 	</td>
 	</tr>
-  </table>
-</div>
+    </table> 
 
-    <br>
+<br> 
+<br>
+
+</div>
     <input type="submit" value="Add Employee">
     <input type="reset" value="Clear Form">
 </form>
