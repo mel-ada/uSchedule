@@ -207,7 +207,7 @@ exports.GetAllShift = function(callback) {
     );
 }
 
-exports.Insert = function(shiftInfo, callback) {
+exports.InsertShift = function(shiftInfo, callback) {
     console.log(shiftInfo);
     var query = 'INSERT INTO P2Shift (sh_idShift, sh_stnName, sh_Day, sh_StartTime, sh_EndTime, sh_taken, sh_level) VALUES (\'' 
 	+ shiftInfo.sh_idShift 

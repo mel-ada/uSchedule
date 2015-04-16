@@ -20,7 +20,7 @@ router.get('/create', function(req, res){
 
 // Save User to the Database
 router.post('/create', function (req, res) {
-    db.Insert( req.body, function (err, result) {
+    db.InsertShift( req.body, function (err, result) {
             if (err) throw err;
 
             if(result.sh_idShift != 'undefined') {

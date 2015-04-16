@@ -1,11 +1,6 @@
 <% include header %>
+<% include navigation %>
 <% include styleForm %>
-
-<div id="nav">
-    <button><a href="/employee/home">Home</a></button>
-</div>
-
-<div id="section">
 
 <div>
     <h2>Sign Up </h2>
@@ -26,7 +21,7 @@
 <br>
 
 <div id="form">
-    <form method="POST" action="/employee/createNew">
+    <form method="POST" action="/employee/create">
     <table id="login">
     	<tr>
 	<td>Record Number:</td>
@@ -71,6 +66,7 @@
     </table> 
 
 <br> 
+<br>
 
 </div>
     <input type="submit" value="Add Employee">

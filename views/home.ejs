@@ -9,8 +9,8 @@
     margin: 5px;
     padding: 15px;
     width: 300px;
-    height: 300px;
-    border: 1px solid black;
+    height: 150px;
+    border: 0px solid black;
     color: black ;
 } 
 
@@ -22,6 +22,10 @@
     float:left;
     padding:5px;	      
 }
+
+.home {
+   height:750px;
+}
 </style>
 </head>
 
@@ -29,26 +33,11 @@
 
 
 
-
+<div class="home">
 <body>
   <a href="/login">
   <div class="level">
-    <h2>Management</h2>
-    <p>Click here if you are a manager.</p>
   </div> </a>
-  
-  <a href="/login">
-  <div class="level">
-    <h2>Employee</h2>
-    <p>Click here if you are a current employee.</p>
-  </div> </a>
-
-  <a href="/employee/createNew">
-  <div class="level">
-    <h2>New Employee</h2>
-    <p>Click here to sign up.</p>
-  </div> </a>
-
 </body>
-
+</div>
 <% include footer %>

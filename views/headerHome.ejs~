@@ -1,5 +1,5 @@
 <!-- Header for HOME PAGE only: contains login -->
-
+<% include styleForm %>
 <!DOCTYPE html>
 <html>
 
@@ -16,7 +16,7 @@ body {
     background-color:#000066;
     color:white;
     text-align:center;
-    height:150px;
+    height:200px;
     padding:5px;
 }
 #nav {
@@ -51,18 +51,17 @@ body {
     <h1>SSU Recreation Center Employee Scheduling</h1> 
 
     <div>
-	<object width=300px align="right">
+	<object width=330px align="right">
     	    <form action="#">
 
         	<input type="text" name="username" placeholder="username">
         	<br>
         	<input type="password" name="password" placeholder="password">
-        	<br><br>
-        	<span>
+        	<br>
+		<span>
             	    <input type="checkbox" name="checkbox">
             	    <label for="checkbox">remember</label>
-        	</span>
-
+		</span>
         	<input type="submit" value="log in">
 
     	    </form>

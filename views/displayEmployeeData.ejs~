@@ -1,19 +1,9 @@
-<!-- This form is for new employees who have no existing account only. -->
-
-
 <% include header %>
+<% include navigation %>
 <% include styleTable %>
-<% include styleForm %>
-
-<div id="nav">
-    <button><a href="/employee/home">Main Page</a></button>
-</div>
-
-
-<div id="section">
 
 <div>
-    <h2>Your account was created successfully.</h2>
+    <h2>Employee was successfully added to database.</h2>
 </div>
 
 <style>
