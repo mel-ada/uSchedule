@@ -18,6 +18,12 @@ router.get('/create', function(req, res){
     res.render('departmentform.ejs', {action: '/department/create'});
 });
 
+
+
+
+
+
+
 // Save User to the Database
 router.post('/create', function (req, res) {
     db.Insert( req.body, function (err, result) {

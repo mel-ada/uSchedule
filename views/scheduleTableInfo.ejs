@@ -4,16 +4,13 @@
 <% include header %>
 <% include styleTable %>
 <% include styleForm %>
-
-<div id="nav">
-    <button><a href="/employee/home">Login</a></button>
-</div>
+<% include navigation %>
 
 
 <div id="section">
 
 <div>
-    <h2>Your account was created successfully.</h2>
+    <h2>Schedule</h2>
 </div>
 
 <style>
@@ -30,17 +27,17 @@
 <br>
 
     <table id="login">
-	<tr><td>Username:</td>
-        <td><b><%= e_username %></b></td>
+        <tr><td>Day:</td>
+        <td><b><%= sh_Day %></b></td>
         </tr>
-        <tr><td>Name:</td>
-        <td><b><%= e_FN %> <%= e_LN%></b></td>
+        <tr><td>Station:</td>
+        <td><b><%= sh_stnName %></b></td>
         </tr>
-        <tr><td>Employee Level:</td>
-        <td><b><%= e_level %></b></td>
+        <tr><td>Start Time:</td>
+        <td><b><%=sh_StartTime %></b></td>
         </tr>
-        <tr><td>Department:</td>
-        <td><b><%= e_dName %></b></td>
+        <tr><td>End Time:</td>
+        <td><b><%= sh_EndTime %></b></td>
         </tr>
     </table>
 </div>

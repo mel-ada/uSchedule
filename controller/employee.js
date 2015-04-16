@@ -17,7 +17,6 @@ router.get('/home', function(req, res) {
     res.render('home.ejs', {action: '/employee/home'});
 });
 
-// Create form used by managers only.
 router.get('/create', function(req, res){
     db.getEmployeeLevels(function(err, levels) {
         console.log(levels);
@@ -29,8 +28,7 @@ router.get('/create', function(req, res){
   });
 });
 
-
-// Create for employee's with no existing accounts
+// SAME EXACT CODE as /create.  Project is running on this one.
 router.get('/createNew', function(req, res){
     db.getEmployeeLevels(function(err, levels) {
         console.log(levels);
@@ -53,6 +51,7 @@ router.post('/create', function (req, res) {
             if(result.affectedRows != 0 ) {
                 var placeHolderValues = {
 		    e_SSN: req.body.e_SSN,
+		    e_username: req.body.e_username,
 		    e_FN: req.body.e_FN,
                     e_LN: req.body.e_LN,
                     e_level: req.body.levels,
@@ -75,6 +74,7 @@ router.post('/createNew', function (req, res) {
             if(result.affectedRows != 0 ) {
                 var placeHolderValues = {
                     e_SSN: req.body.e_SSN,
+         	    e_username: req.body.e_username,
                     e_FN: req.body.e_FN,
                     e_LN: req.body.e_LN,
                     e_level: req.body.levels,

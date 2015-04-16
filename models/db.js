@@ -40,7 +40,7 @@ connection.query('CREATE DATABASE IF NOT EXISTS mmorel', function (err) {
 
 // Display one employee (by entering SSN)
 exports.Gete_SSN = function(employeeInfo, callback) {
-    var query = 'Select e_FN, e_LN, e_level, e_dName from P2Employee WHERE e_SSN=' + landmarkInfo.e_SSN + ';';
+    var query = 'Select e_username, e_FN, e_LN, e_level, e_dName from P2Employee WHERE e_SSN=' + landmarkInfo.e_SSN + ';';
     console.log(query);
     connection.query(query,
         function (err, result) {
@@ -68,7 +68,7 @@ exports.getEmployeeLevels = function(callback) {
 
 // Display all Employees
 exports.GetAllEmployee = function(callback) {
-    connection.query('SELECT e_FN, e_LN, e_level, e_dName from P2Employee',
+    connection.query('SELECT e_username, e_FN, e_LN, e_level, e_dName from P2Employee',
 	function (err, result) {
             if(err) {
                 console.log(err);
@@ -83,7 +83,7 @@ exports.GetAllEmployee = function(callback) {
 // Insert an employee
 exports.InsertEmployee = function(employeeInfo, callback) {
     console.log(employeeInfo);
-    var query = 'INSERT INTO P2Employee (e_SSN, e_FN, e_LN, e_level, e_dName) VALUES (\'' 
+    var query = 'INSERT INTO P2Employee (e_SSN, e_FN, e_LN, e_level, e_dName, e_username) VALUES (\'' 
 	+ employeeInfo.e_SSN 
 	+ '\', \'' 
 	+ employeeInfo.e_FN 
@@ -93,6 +93,8 @@ exports.InsertEmployee = function(employeeInfo, callback) {
 	+ employeeInfo.levels
 	+ '\', \''
 	+ employeeInfo.department
+	+ '\', \''
+	+employeeInfo.e_username
 	+ '\');';
     console.log(query);
     connection.query(query,
@@ -206,6 +208,24 @@ exports.GetAllShift = function(callback) {
         }
     );
 }
+
+
+exports.GetDay = function(sh_Day, callback) {
+    var query = 'SELECT sh_Day, sh_stnName, sh_StartTime, sh_EndTime from P2Shift WHERE sh_Day =' + sh_Day;
+    console.log(query);
+    connection.query('SELECT sh_Day, sh_stnName, sh_StartTime, sh_EndTime from P2Shift WHERE sh_Day =' + sh_Day,
+        function (err, result) {
+            if(err) {
+                console.log(err);
+                callback(true);
+                return;
+            }
+            callback(false, result);
+        }
+    );
+}
+
+
 
 exports.InsertShift = function(shiftInfo, callback) {
     console.log(shiftInfo);

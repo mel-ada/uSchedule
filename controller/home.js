@@ -39,6 +39,24 @@ router.get('/allSchedule', function (req, res) {
     );
 });
 
+/* get sh_Day */
+router.get('/', function (req, res) {
+    console.log(req.query) 
+    db.GetDay(req.query.sh_Day,
+	function (err, result) {
+            if (err) throw err;
+	    console.log(result);
+            res.render('scheduleTableInfo.ejs', {rs: result});
+        }
+    );
+});
+
+
+
+
+
+
+
 
 
 router.post('/displayLoginData', function(req, res) {
