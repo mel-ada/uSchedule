@@ -1,0 +1,72 @@
+<!-- This will display all employee schedule -->
+
+<% include header %>
+<% include navigation %>
+
+<div id="section">
+
+<div>
+    <h2>Employee Schedule</h2>
+</div>
+
+<style>
+#sep {
+    height: 2px;
+    background: #D1F0FF;
+    width: 1300px;
+    margin: 0px -25px;
+}
+
+table {
+    width:100%;
+}
+table, td {
+    width:15px;
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+
+td {
+    padding: 5px;
+    text-align: center;
+    width:15px;
+}
+table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+   background-color:#fff;
+}
+table#t01 th	{
+    background-color: black;
+    color: white;
+}
+
+</style>
+
+<div id="sep"> </div>
+<br>
+<br>
+
+    <% if(rs.length > 0) { %>
+    	<table id="t01" width="400">
+ 	    <% for (var j=0; j < 7; j++) { %>
+		<th width="400"><%=rs[j].sh_Day %></th>
+<tr>
+		    <% for (var i=0; rs.length > i && rs[i].sh_Day == rs[j].sh_Day; i++) { %>
+			    <td><%=rs[i].sh_StartTime %></td>
+		    	    <td><%=rs[i].sh_EndTime %></td>
+		    	    <td><%=rs[i].sh_stnName %></td>
+	    	    <% } %>
+
+</tr>
+<% } %>   
+ 	</table>
+ <% } else { %>
+         No shifts are up for grabs.
+    <% } %>
+
+<% include footer %>
+
+

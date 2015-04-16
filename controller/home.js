@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var db   = require('../models/db');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -29,7 +30,14 @@ router.get('/loginForm', function(req, res){
 });
 
 
-
+/* View all schedule in a <table> */
+router.get('/allSchedule', function (req, res) {
+    db.GetAllShift(function (err, result) {
+            if (err) throw err;
+            res.render('scheduleTable.ejs', {rs: result});
+        }
+    );
+});
 
 
 
