@@ -1,26 +1,40 @@
-
-
 <% include header %>
 <% include navigation %>
+<% include styleForm %>
+<div id="section">
 
-<h4>View Schedule</h4>
+    <div>
+    	<h2>Employee Schedule</h2>
+    </div>
 
+<style>
+#sep {
+    height: 2px;
+    background: #D1F0FF;
+    width: 1300px;
+    margin: 0px -25px;
+}
+</style>
 
-     <% if(rs.length > 0) { %>
-   <form method="post" action="/employeeshift/viewSchedule">
-       <label for="recNumber">Select Name:</label>
-       <select id="recNumber" name="recNumber">
+<div id="sep"> </div>
+<br>
+<br>
+
+    <% if(rs.length > 0) { %>
+     	<form method="post" action="/employeeshift/viewSchedule">
+       	<label for="recNumber">Select Name:</label>
+       	<select id="recNumber" name="recNumber">
             <% for (var i=0; rs.length > i; i++) { %>
-             <option value="<%= rs[i].e_SSN %>">
-                 <%= rs[i].e_FN %> <%= rs[i].e_LN %>
-             </option>
+             	<option value="<%= rs[i].e_SSN %>">
+                    <%= rs[i].e_FN %> <%= rs[i].e_LN %>
+             	</option>
             <% } %>
-       </select>
+       	</select>
        <input type="submit">
    </form>
     <% } else { %>
          No users are entered into the database.
     <% } %>
-
+</div>
 
 <% include footer %>
