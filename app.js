@@ -14,6 +14,12 @@ var station = require('./controller/station');
 var employeeshift = require('./controller/employeeshift');
 var enterAvailability = require('./controller/availability');
 
+
+
+
+
+
+
 // initialize express web application framework
 // http://expressjs.com/
 var app = express();

@@ -22,6 +22,17 @@ router.get('/login', function(req, res){
     res.render('login.ejs', {action: '/displayLoginData'});
 });
 
+
+
+router.get('/loginForm', function(req, res){
+    res.render('loginForm.ejs', {action: '/displayLoginData'});
+});
+
+
+
+
+
+
 router.post('/displayLoginData', function(req, res) {
     console.log(req.body);
     res.render('displayLoginData.ejs', req.body );
