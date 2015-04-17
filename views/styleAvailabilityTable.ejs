@@ -1,0 +1,40 @@
+<!-- This is the stylesheet for tables. -->
+
+<!DOCTYPE html>
+<html>
+
+<style>
+table {
+    width:25%;
+}
+table, th, td, tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width:25%;
+}
+th {
+    padding: 5px;
+    text-align: center;
+    width:25%;
+}
+td, tr {
+    padding: 5px;
+    text-align: right;
+    width:25%;
+}
+table#t01 tr:nth-child(even) {
+    background-color: #eeeeee;
+    text-align: right;
+    width:25%
+}
+table#t01 tr:nth-child(odd) {
+    background-color:#ffffff;
+    text-align: right;
+    width: 25%;
+}
+table#t01 th    {
+    background-color: black;
+    color: white;
+    width: 25%;
+}
+</style>

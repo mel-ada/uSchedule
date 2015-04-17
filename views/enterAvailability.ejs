@@ -1,77 +1,191 @@
 <% include header %>
 <% include navigation %>
+<% include styleAvailabilityTable %>
+<% include styleForm%>
 
-<p style="color:black"><i>Fill out this form to enter availabitity.</i></p>
+<div id="section">
 
+<div>
+    <h2>Employee Availability </h2>
+</div>
 
-<!-- Form Style -->
 <style>
-#form {
-	display: inline-block;
-	float: left;
-	clear: left;
-	width: 600px;
-	text-align: left;
+#sep {
+    height: 2px;
+    background: #D1F0FF;
+    width: 1300px;
+    margin: 0px -25px;
 }
-
-#input {
-	vertical-align: bottom;
-	border: 1px solid gray;
-}
-
-
-#select {
-	vertical-align: bottom;
-	border: 1px solid gray;
-}
-
 </style>
 
+<div id="sep"> </div>
+<br>
+<br>
+
+<% if(rs.length > 0) { %>
+    <div id="form">
+        <form method="POST" action="enterAvailability/viewAvailability">
+        <table id="t01">
+
+	    <tr>
+	   	<% for (var i = 0; i < 1; i++) { %>
+                    <th><%=rs[i].a_Day %></th>
+            	<% }%> 
+	    </tr>
+            	<% for (var j = 0; j < rs.length; j++) { %>
+                    <% for (var k = 0; k < 1; k++) { %>
+			<tr>
+                    	    <% if(rs[j].a_Day == rs[k].a_Day) { %>
+                            	<td>
+				    <%= formatTime(rs[j].a_StartTime) %> -
+                                    <%= formatTime(rs[j].a_EndTime) %>
+                                    <input type="checkbox" id="e_SSN" name="e_SSN">
+			    	</td>
+                    	    <% } %>
+			</tr>
+                    <% } %>
+           	<% } %>
+
+	    <tr>
+		<% for (var i = 1; i < 2 && i > 0; i++) { %>
+                    <th><%=rs[i].a_Day %></th>
+            	<% }%> 
+	    </tr>
+
+                <% for (var j = 0; j < rs.length; j++) { %>
+                    <% for (var k = 1; k < 2 && k > 0; k++) { %>
+                        <tr>
+			    <% if(rs[j].a_Day == rs[k].a_Day) { %>
+                           	<td>
+				    <%= formatTime(rs[j].a_StartTime) %> -
+                              	    <%= formatTime(rs[j].a_EndTime) %>
+                                    <input type="checkbox" id="e_SSN" name="e_SSN">
+				</td>
+                    	    <% } %>
+			</tr>
+                    <% } %>
+            	<% } %>
 
 
- <% if(rs.length > 0) { %> 
+  	    <tr>
+                <% for (var i = 2; i < 3 && i > 1; i++) { %>
+                    <th><%=rs[i].a_Day %></th>
+                <% }%> 
+            </tr>
+
+                <% for (var j = 0; j < rs.length; j++) { %>
+                    <% for (var k = 2; k < 3 && k > 1; k++) { %>
+                        <tr>
+                            <% if(rs[j].a_Day == rs[k].a_Day) { %>
+                                <td>
+                                    <%= formatTime(rs[j].a_StartTime) %> -
+                                    <%= formatTime(rs[j].a_EndTime) %>
+                                    <input type="checkbox" id="e_SSN" name="e_SSN">
+                                </td>
+                            <% } %>
+                        </tr>
+                    <% } %>
+                <% } %>
 
 
-<div id="form">
-<form method="POST" action="enterAvailability/viewAvailability">
-<table>
+ 	    <tr>
+                <% for (var i = 3; i < 4 && i > 2; i++) { %>
+                    <th><%=rs[i].a_Day %></th>
+                <% }%>
+            </tr>
 
-    <tr>
-    <th colspan="2">Monday</th>
-    <th colspan="2">Tuesday</th>
-    <th colspan="2">Wednesday</th>
-    <th colspan="2">Thursday</th>
-    <th colspan="2">Friday</th>
-    <th colspan="2">Saturday</th>
-    <th colspan="2">Sunday</th>
-</tr>
-  <% for (var j = 0; j < 7; j++) { %>
+                <% for (var j = 0; j < rs.length; j++) { %>
+                    <% for (var k = 3; k < 4 && k > 2; k++) { %>
+                        <tr>
+                            <% if(rs[j].a_Day == rs[k].a_Day) { %>
+                                <td>
+                                    <%= formatTime(rs[j].a_StartTime) %> -
+                                    <%= formatTime(rs[j].a_EndTime) %>
+                                    <input type="checkbox" id="e_SSN" name="e_SSN">
+                                </td>
+                            <% } %>
+                        </tr>
+                    <% } %>
+                <% } %>
 
-    
-     
-     <tr>
- <% for (var i=0; i < rs.length; i++) { %>
 
-     <td> <%= formatTime(rs[i].a_StartTime) %> </td>
-     <td> <%= formatTime(rs[i].a_EndTime) %> </td>
-     <td><input type="checkbox" id="e_SSN" name="e_SSN" /></td>             
-    
+
+	    <tr>
+                <% for (var i = 4; i < 5 && i > 3; i++) { %>
+                    <th><%=rs[i].a_Day %></th>
+                <% }%>
+            </tr>
+
+                <% for (var j = 0; j < rs.length; j++) { %>
+                    <% for (var k = 4; k < 5 && k > 3; k++) { %>
+                        <tr>
+                            <% if(rs[j].a_Day == rs[k].a_Day) { %>
+                                <td>
+                                    <%= formatTime(rs[j].a_StartTime) %> -
+                                    <%= formatTime(rs[j].a_EndTime) %>
+                                    <input type="checkbox" id="e_SSN" name="e_SSN">
+                                </td>
+                            <% } %>
+                        </tr>
+                    <% } %>
+                <% } %>
+
+
+	    <tr>
+                <% for (var i = 5; i < 6 && i > 4; i++) { %>
+                    <th><%=rs[i].a_Day %></th>
+                <% }%>
+            </tr>
+
+                <% for (var j = 0; j < rs.length; j++) { %>
+                    <% for (var k = 5; k < 6 && k > 4; k++) { %>
+                        <tr>
+                            <% if(rs[j].a_Day == rs[k].a_Day) { %>
+                                <td>
+                                    <%= formatTime(rs[j].a_StartTime) %> -
+                                    <%= formatTime(rs[j].a_EndTime) %>
+                                    <input type="checkbox" id="e_SSN" name="e_SSN">
+                                </td>
+                            <% } %>
+                        </tr>
+                    <% } %>
+                <% } %>
+
+
+
+	    <tr>
+                <% for (var i = 6; i < 7 && i > 5; i++) { %>
+                    <th><%=rs[i].a_Day %></th>
+                <% }%>
+            </tr>
+
+                <% for (var j = 0; j < rs.length; j++) { %>
+                    <% for (var k = 6; k < 7 && k > 5; k++) { %>
+                        <tr>
+                            <% if(rs[j].a_Day == rs[k].a_Day) { %>
+                                <td>
+                                    <%= formatTime(rs[j].a_StartTime) %> -
+                                    <%= formatTime(rs[j].a_EndTime) %>
+                                    <input type="checkbox" id="e_SSN" name="e_SSN">
+                                </td>
+                            <% } %>
+                        </tr>
+                    <% } %>
+                <% } %>
+
+
+<% } else { %>
+	Manager has not entered any shifts to work.
 <% } %>
-     </tr>
-
-
-<% }%>
 
 </table>
-  <% } else { %>
-        Manager has not entered any shifts to work.
-  <% } %>
-
     <br>
     <input type="submit" value="Add Employee">
     <input type="reset" value="Clear Form">
 </form>
+</div>
 
+<!--
 
 <div id="form">
 <form method="POST" action="">
@@ -187,10 +301,12 @@
 
          </table>
 </div>
-
     <br>
     <input type="submit" value="Add Employee">
     <input type="reset" value="Clear Form">
 </form>
+ -->
 
+</div>
+</div>
 <% include footer %>
