@@ -1,8 +1,28 @@
 
 <% include header %>
 <% include navigation %>
+<% include styleForm %>
 
-<h4>Choose Level</h4>
+<div id="section">
+
+<div>
+    <h2>Sub Corner</h2>
+</div>
+
+<style>
+#sep {
+    height: 2px;
+    background: #D1F0FF;
+    width: 1300px;
+    margin: 0px -25px;
+}
+</style>
+
+<div id="sep"> </div>
+<br>
+<br>
+
+
 
      <% if(rs.length > 0) { %>
    <form method="post" action="/level/subCorner">
@@ -19,12 +39,11 @@
     <% } else { %>
          No levels to display.
     <% } %>
-
+<br>
       <br>
       <a href="/employee/level">Which level am I?</a>
 
 
 
-
+</div>
 <% include footer %>
-</p>

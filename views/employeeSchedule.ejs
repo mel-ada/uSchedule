@@ -1,36 +1,29 @@
 <% include header %>
 <% include navigation %>
+<% include styleAvailabilityTable %>
 
-<h4>Employee Schedule</h4>
 
+<div id="section">
 
-<head>
+    <div>
+    	<h2>Employee Schedule</h2>
+    </div>
+
 <style>
-table {
-    width:100%;
-}
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-th, td {
-    padding: 5px;
-    text-align: left;
-}
-table#t01 tr:nth-child(even) {
-    background-color: #eee;
-}
-table#t01 tr:nth-child(odd) {
-   background-color:#fff;
-}
-table#t01 th	{
-    background-color: black;
-    color: white;
+#sep {
+    height: 2px;
+    background: #D1F0FF;
+    width: 1300px;
+    margin: 0px -25px;
 }
 </style>
-</head>
 
-<body>
+<div id="sep"> </div>
+<br>
+<br>
+
+
+
 
 
  <% if(rs.length > 0) { %>
@@ -58,5 +51,5 @@ table#t01 th	{
   <% } %>
 
 
-
+</div>
 <% include footer %>

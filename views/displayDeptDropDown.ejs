@@ -1,7 +1,28 @@
 <% include header %>
 <% include navigation %>
+<% include styleEditDepartment %>
 
-<h4>Edit Department</h4>
+<div id="section">
+
+<div>
+    <h2>Edit Department</h2>
+</div>
+
+<style>
+#sep {
+    height: 2px;
+    background: #D1F0FF;
+    width: 1300px;
+    margin: 0px -25px;
+}
+</style>
+
+<div id="sep"> </div>
+<br>
+<br>
+
+
+
 
  <form method="POST" action="/department/postDept">
     <table id="login">
@@ -16,5 +37,5 @@
     <input type="submit" value="Update Department">
 </form>
 
-
+</div>
 <% include footer %>
