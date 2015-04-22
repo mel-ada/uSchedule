@@ -32,7 +32,7 @@ router.get('/enterAvailability', function(req, res){
 });
 
 
-router.post('/updateAvailability', function (req, res) {
+router.post('/viewAvailability', function (req, res) {
     db.ViewAvailability( req.body, function (err, result) {
             if (err) {
                 throw err;

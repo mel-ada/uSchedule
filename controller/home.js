@@ -29,6 +29,17 @@ router.get('/loginForm', function(req, res){
     res.render('loginForm.ejs', {action: '/displayLoginData'});
 });
 
+router.post('/loginSuccess', function(req, res) {
+    console.log(req.body);
+    db.GetLogin(req.query.e_username,
+        function (err, result) {
+            if (err) throw err;
+            console.log(result); 
+   res.render('loginSuccess.ejs', req.body );
+}
+);
+});
+
 
 /* View all schedule in a <table> */
 router.get('/allSchedule', function (req, res) {

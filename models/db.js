@@ -35,6 +35,26 @@ connection.query('CREATE DATABASE IF NOT EXISTS mmorel', function (err) {
 
 
 
+
+//------------------------------------------------------
+//LOGIN
+
+
+exports.GetLogin = function(employeeInfo, callback) {
+    var query = 'Select  e_FN, e_LN from P2Employee WHERE e_username=' + employeeInfo.e_username + ';';
+    console.log(query);
+    connection.query(query,
+        function (err, result) {
+            if(err) {
+                console.log(err);
+                callback(true);
+                return;
+            }
+            callback(false, result);
+        }
+    );
+};
+
 //-------------------------------------------------------
 // EMPLOYEE TABLE
 
@@ -277,7 +297,7 @@ exports.Getsh_idShift = function(sh_idShift, callback) {
 
 //Display enter availability page                                                                                         
 exports.EnterAvailability = function(callback) {
-    var query = 'SELECT a_Day, a_StartTime, a_EndTime from P2Availability;';
+    var query = 'SELECT a_StartTime, a_EndTime from P2Availability;';
 
 
     console.log(query);
@@ -299,7 +319,7 @@ exports.EnterAvailability = function(callback) {
 //Select availability for specific employee
 //Copied from Employee Shift Schedule function, Not sure where userInfo.recNumber comes from                                                                               
 exports.ViewAvailability = function(userInfo, callback) {
-    var query = 'SELECT a_Day, a_StartTime, a_EndTime from P2Availability JOIN P2EmployeeAvailability ON P2Availability.a_ID = P2EmployeeAvailability.ea_ID JOIN P2Employee ON P2EmployeeAvailability.a_SSN = P2Employee.e_SSN WHERE P2Employee.e_SSN =' +
+    var query = 'SELECT a_StartTime, a_EndTime from P2Availability JOIN P2EmployeeAvailability ON P2Availability.a_ID = P2EmployeeAvailability.ea_ID JOIN P2Employee ON P2EmployeeAvailability.a_SSN = P2Employee.e_SSN WHERE P2Employee.e_SSN =' +
     userInfo.recNumber + ';';
     console.log(query);
     connection.query(query,
