@@ -33,6 +33,22 @@ connection.query('CREATE DATABASE IF NOT EXISTS mmorel', function (err) {
     });
 });
 
+//-----------------------------------------------------
+//SCHEDULE
+exports.weeklySchedule = function(){
+    var query = 'Select  e_FN, e_LN from P2Employee WHERE e_username=' + employeeInfo.e_username + ';';
+    console.log(query);
+    connection.query(query,
+        function (err, result) {
+            if(err) {
+                console.log(err);
+                callback(true);
+                return;
+            }
+            callback(false, result);
+        }
+    );
+};
 
 
 

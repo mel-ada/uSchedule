@@ -8,27 +8,16 @@ var db   = require('../models/db');
 
 
 
-router.get('/enterAvailability', function(req, res){
-        db.EnterAvailability(function (err, result) {
-            if (err) throw err;
+router.get('/weeklySchedule', function(req, res){
+        db.weeklySchedule(function (err, result) {
+           
+            if (err) {                                                                                                                    
+                throw err; 
+	    }
 	    
-	    var formatTime = function(time) {
-		if (time === 12){
-                    return '12pm';
-                }
-		else if (time === 24){
-                    return '12am';
-                }
-		else if (time > 12) {
-		    return (time - 12) + 'pm';
-		} 		 
-		else  {
-		    return time + 'am';
-		}
-	    };
-	    
-	    res.render('enterAvailability.ejs', {rs: result, formatTime: formatTime});
-	});
+	    res.render('weeklyAvailability.ejs', {rs: result});
+	    }
+	);
 });
 
 

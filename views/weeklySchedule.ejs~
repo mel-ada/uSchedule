@@ -1,0 +1,55 @@
+<% include header %>
+<% include navigation %>
+<% include styleAvailabilityTable %>
+
+
+<div id="section">
+
+    <div>
+    	<h2>Employee Schedule</h2>
+    </div>
+
+<style>
+#sep {
+    height: 2px;
+    background: #D1F0FF;
+    width: 1300px;
+    margin: 0px -25px;
+}
+</style>
+
+<div id="sep"> </div>
+<br>
+<br>
+
+
+
+
+
+ <% if(rs.length > 0) { %>
+
+
+<table>
+  <tr>
+    <th>Day</th>
+    <th>In</th>		
+    <th>Out</th>
+    <th>Station</th>
+  </tr>
+  
+  <% for (var i=0; rs.length > i; i++) { %>
+            <tr>
+             <td> <%= rs[i].sh_Day %> </td>
+	     <td> <%= rs[i].sh_startTime %> </td>
+	     <td> <%= rs[i].sh_endTime %> </td>
+	     <td> <%= rs[i].sh_stnName %> </td>
+            </tr>
+        <% } %>
+</table>
+  <% } else { %>
+	No shifts have been scheduled for this employee.
+  <% } %>
+
+
+</div>
+<% include footer %>
