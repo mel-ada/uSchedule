@@ -36,6 +36,7 @@ connection.query('CREATE DATABASE IF NOT EXISTS mmorel', function (err) {
 //-----------------------------------------------------
 //SCHEDULE
 exports.weeklySchedule = function(){
+// join eAvailbilty with shifts
     var query = 'Select  e_FN, e_LN from P2Employee WHERE e_username=' + employeeInfo.e_username + ';';
     console.log(query);
     connection.query(query,
@@ -156,6 +157,7 @@ exports.GetAllDepartment = function(callback) {
                 callback(true);
                 return;
             }
+
             callback(false, result);
         }
     );
@@ -192,6 +194,7 @@ exports.Getd_name = function(d_name, callback) {
                 callback(true);
                 return;
             }
+	    console.log(result);
             callback(false, result);
         }
     );
@@ -208,6 +211,7 @@ exports.selectDept = function(callback) {
                 callback(true);
                 return;
             }
+	    console.log(result);
             callback(false, result);
         }
     );
@@ -240,6 +244,7 @@ exports.GetAllShift = function(callback) {
                 callback(true);
                 return;
             }
+	    console.log(result);
             callback(false, result);
         }
     );

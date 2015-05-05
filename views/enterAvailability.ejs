@@ -61,6 +61,11 @@ table#t01 th    {
 
 <div id="form">
 <form method="POST" action="viewAvailability">
+<select name="employee">
+<% for (var i=0; i < employees.length; i++) { %>
+   <option value="<%= employees[i].e_SSN %>"> <%= employees[i].e_FN +" " +  employees[i].e_LN %>   </option>
+<% }%>
+</select>
 <table>
 
     <tr>

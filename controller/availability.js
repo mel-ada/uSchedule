@@ -26,8 +26,12 @@ router.get('/enterAvailability', function(req, res){
 		    return time + 'am';
 		}
 	    };
+
+	    db.GetAllEmployee(function (err, employees) { 
+		if (err) throw err;
+		res.render('enterAvailability.ejs', {rs: result, formatTime: formatTime, employees: employees});
+	    });
 	    
-	    res.render('enterAvailability.ejs', {rs: result, formatTime: formatTime});
 	});
 });
 
