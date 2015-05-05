@@ -48,6 +48,6 @@ app.use('/station', station);
 app.use('/employeeshift', employeeshift);
 app.use('/enterAvailability', enterAvailability);
 
-app.set('port', 2000);
+app.set('port', 8003);
 app.listen(app.get('port'));
 console.log("Express server listening on port", app.get('port'));

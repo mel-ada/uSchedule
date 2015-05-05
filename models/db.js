@@ -318,7 +318,7 @@ exports.Getsh_idShift = function(sh_idShift, callback) {
 
 //Display enter availability page                                                                                         
 exports.EnterAvailability = function(callback) {
-    var query = 'SELECT a_StartTime, a_EndTime from P2Availability;';
+    var query = 'SELECT a_StartTime, a_EndTime, a_day from P2Availability GROUP BY a_StartTime ORDER BY a_day DESC;';
 
 
     console.log(query);
@@ -334,6 +334,30 @@ exports.EnterAvailability = function(callback) {
     );
 }
 
+
+
+exports.UpdateAvailability = function(employeeId, shiftIDs, callback) {
+    var query = 'INSERT IGNORE INTO P2EmployeeAvailability (a_SSN, ea_ID) VALUES';
+    
+    shiftIDs.forEach(function(shiftID){
+	query += ' (' + employeeId + ',' + shiftID + '),';
+    });
+
+    query = query.slice(0, -1) + ';';
+
+
+    console.log(query);
+    connection.query(query,
+        function (err, result) {
+            if(err) {
+                console.log(err);
+                callback(true);
+                return;
+            }
+            callback(false, result);
+        }
+    );
+}
 
 
 

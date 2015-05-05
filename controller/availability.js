@@ -43,7 +43,10 @@ router.post('/viewAvailability', function (req, res) {
       //      if (err) {
         //        throw err;
                // res.render('viewAvailability.ejs', {rs: result});
-	console.log(req.body.e_SSN);  
+	console.log(req.body);
+    db.UpdateAvailability(req.body.employee, req.body.shifts, function(err){
+//render availability for that person
+});
  });
 //});
 

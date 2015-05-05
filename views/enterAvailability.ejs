@@ -84,7 +84,7 @@ table#t01 th    {
 <% for (var j = 0; j < 7; j++) { %>   
      <td> <%= formatTime(rs[i].a_StartTime) %> </td>
      <td> <%= formatTime(rs[i].a_EndTime) %> </td>
-     <td><input type="checkbox" id="e_SSN" value="<%=String(j) + String(i)%>" name="e_SSN" /></td>             
+     <td><input type="checkbox" id="e_SSN" value="<%=String(j*6 +i + 1)%>" name="shifts" /></td>             
      
 <% }%>
      </tr>
