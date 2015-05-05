@@ -105,7 +105,7 @@ exports.getEmployeeLevels = function(callback) {
 
 // Display all Employees
 exports.GetAllEmployee = function(callback) {
-    connection.query('SELECT e_username, e_FN, e_LN, e_level, e_dName from P2Employee',
+    connection.query('SELECT e_SSN, e_username, e_FN, e_LN, e_level, e_dName from P2Employee',
 	function (err, result) {
             if(err) {
                 console.log(err);
