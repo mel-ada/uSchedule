@@ -63,7 +63,6 @@ router.get('/viewSchedule', function(req, res){
     );
 });
 
-
 router.post('/viewSchedule', function (req, res) {
     db.Schedule( req.body, function (err, result) {
             if (err) {
@@ -74,7 +73,22 @@ router.post('/viewSchedule', function (req, res) {
     );
 });
 
+router.get('/createSchedule', function(req, res){
+        db.CreateSchedule(function (err, result) {
+            if (err) throw err;
+        res.render('createschedule.ejs', {rs: result});
+    }
+    );
+});
 
-
+router.post('/createSchedule', function (req, res) {
+    db.Schedule( req.body, function (err, result) {
+            if (err) {
+                throw err;
+            }
+                res.render('createschedule.ejs', {rs: result});
+            }
+    );
+});
 module.exports = router;
 

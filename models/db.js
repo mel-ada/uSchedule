@@ -549,10 +549,30 @@ exports.Getes_SSN = function(es_SSN, callback) {
     );
 }
 
+
+
+//Select schedule for specific employee                                                                                   
+exports.CreateSchedule = function(callback) {
+    var query = 'SELECT e_SSN, sh_Day, sh_startTime, sh_endTime, sh_stnName from P2Shift JOIN P2EmployeeShift ON P2Shift.sh_idShift = P2EmployeeShift.es_idShift JOIN P2Employee ON P2EmployeeShift.es_SSN = P2Employee.e_SSN';
+    console.log(query);
+    connection.query(query,
+        function (err, result) {
+            if(err) {
+                console.log(err);
+                callback(true);
+                return;
+            }
+            callback(false, result);
+        }
+    );
+}
+
+
 //Select schedule for specific employee
 exports.Schedule = function(userInfo, callback) {
     var query = 'SELECT sh_Day, sh_startTime, sh_endTime, sh_stnName from P2Shift JOIN P2EmployeeShift ON P2Shift.sh_idShift = P2EmployeeShift.es_idShift JOIN P2Employee ON P2EmployeeShift.es_SSN = P2Employee.e_SSN WHERE P2Employee.e_SSN =' + userInfo.recNumber + ';';
-    console.log(query);
+  
+  console.log(query);
     connection.query(query,
         function (err, result) {
             if(err) {
