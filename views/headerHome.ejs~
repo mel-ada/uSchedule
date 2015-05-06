@@ -1,5 +1,5 @@
 <!-- Header for HOME PAGE only: contains login -->
-<% include styleForm %>
+<% include styleHome %>
 <!DOCTYPE html>
 <html>
 
@@ -7,7 +7,7 @@
 <style>
 
 body {
-    background-image: url(http://kreativo.se/backlogin.jpg);
+    background-image: url(http://www.lpainc.com/content/project/70_358294684.jpg);
     font-family: "Helvetica Neue", Helvetica, Arial;
     padding-top: 20px;
 }
@@ -16,7 +16,7 @@ body {
     background-color:#000066;
     color:white;
     text-align:center;
-    height:200px;
+    height:180px;
     padding:5px;
 }
 #nav {
@@ -32,7 +32,7 @@ body {
 #section {
     width:550px;
     float:left;
-    padding:10px;	 	 
+    padding:10px;	 	
 }
 #footer {
     background-color:#000066;
@@ -47,23 +47,18 @@ body {
 <body>
 
 <div id="header">
-
     <h1>SSU Recreation Center Employee Scheduling</h1> 
 
     <div>
 	<object width=330px align="right">
-    	    <form action="#">
+    	     <form method="post" action="/loginSuccess">
 
         	<input type="text" name="username" placeholder="username">
         	<br>
         	<input type="password" name="password" placeholder="password">
         	<br>
-		<span>
-            	    <input type="checkbox" name="checkbox">
-            	    <label for="checkbox">remember</label>
-		</span>
         	<input type="submit" value="log in">
-
+		<button><a href="/employee/createNew">sign up</a></button>
     	    </form>
 	</object>
     </div>

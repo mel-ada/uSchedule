@@ -4,6 +4,11 @@ var express = require('express'),
     connect = require('connect'),
     bodyParser = require('body-parser');
 
+// login
+var passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy;
+
+
 // import routes
 var routes = require('./controller/home');
 var employee  = require('./controller/employee');
@@ -13,10 +18,7 @@ var department = require('./controller/department');
 var station = require('./controller/station');
 var employeeshift = require('./controller/employeeshift');
 var enterAvailability = require('./controller/availability');
-
-
-
-
+var login = require('./controller/login');
 
 // initialize express web application framework
 // http://expressjs.com/
@@ -30,6 +32,22 @@ app.use(bodyParser.urlencoded({
 
 // configure static directory
 app.use(express.static('public'));
+
+// login configuration
+passport.use(new LocalStrategy(
+  function(e_username, e_password, done) {
+    Employee.findOne({ e_username: e_username }, function (err, employee) {
+      if (err) { return done(err); }
+      if (!employee) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!employee.validPassword(e_password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, employee);
+    });
+  }
+));
 
 //configure view rendering engine
 app.set('view engine', 'ejs');
@@ -48,6 +66,7 @@ app.use('/station', station);
 app.use('/employeeshift', employeeshift);
 app.use('/enterAvailability', enterAvailability);
 
-app.set('port', 8003);
+
+app.set('port', 8029);
 app.listen(app.get('port'));
 console.log("Express server listening on port", app.get('port'));
