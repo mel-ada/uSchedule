@@ -17,8 +17,16 @@ var level = require('./controller/level');
 var department = require('./controller/department');
 var station = require('./controller/station');
 var employeeshift = require('./controller/employeeshift');
+<<<<<<< Updated upstream
 var enterAvailability = require('./controller/availability');
 var login = require('./controller/login');
+=======
+//var enterAvailability = require('./controller/availability');
+var availability = require('./controller/availability'); 
+
+
+
+>>>>>>> Stashed changes
 
 // initialize express web application framework
 // http://expressjs.com/
@@ -64,9 +72,14 @@ app.use('/level', level);
 app.use('/department', department);
 app.use('/station', station);
 app.use('/employeeshift', employeeshift);
-app.use('/enterAvailability', enterAvailability);
+//app.use('/enterAvailability', enterAvailability);
+app.use('/availability', availability); 
 
+<<<<<<< Updated upstream
 
 app.set('port', 8029);
+=======
+app.set('port', 8004);
+>>>>>>> Stashed changes
 app.listen(app.get('port'));
 console.log("Express server listening on port", app.get('port'));

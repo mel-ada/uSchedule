@@ -1,0 +1,54 @@
+<% include header %>
+<% include navigation %>
+<% include styleAvailabilityTable %>
+
+
+<div id="section">
+
+    <div>
+    	<h2>Employee Availability</h2>
+    </div>
+
+<style>
+#sep {
+    height: 2px;
+    background: #D1F0FF;
+    width: 1300px;
+    margin: 0px -25px;
+}
+</style>
+
+<div id="sep"> </div>
+<br>
+<br>
+
+
+
+
+
+ <% if(rs.length > 0) { %>
+
+
+<table>
+  <tr>
+    <th>Day</th>
+    <th>In</th>		
+    <th>Out</th>
+    <th>Station</th>
+  </tr>
+  
+  <% for (var i=0; rs.length > i; i++) { %>
+            <tr>
+             <td> <%= rs[i].a_day %> </td>
+	     <td> <%= rs[i].a_StartTime %> </td>
+	     <td> <%= rs[i].a_EndTime %> </td>
+	     </tr>
+        <% } %>
+</table>
+  <% } else { %>
+     This employee hasn't entered an availability.
+  <% } %>
+
+
+</div>
+<% include footer %>
