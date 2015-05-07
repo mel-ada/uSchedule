@@ -553,7 +553,7 @@ exports.Getes_SSN = function(es_SSN, callback) {
 
 //Select schedule for specific employee                                                                                   
 exports.CreateSchedule = function(callback) {
-    var query = 'SELECT e_LN, e_FN, sh_Day, sh_startTime, sh_endTime, sh_stnName from P2Shift JOIN P2EmployeeShift ON P2Shift.sh_idShift = P2EmployeeShift.es_idShift JOIN P2Employee ON P2EmployeeShift.es_SSN = P2Employee.e_SSN ORDER BY P2Shift.sh_Day';
+    var query = 'SELECT e_LN, e_FN, sh_Day, sh_startTime, sh_endTime, sh_stnName from P2Shift JOIN P2EmployeeShift ON P2Shift.sh_idShift = P2EmployeeShift.es_idShift JOIN P2Employee ON P2EmployeeShift.es_SSN = P2Employee.e_SSN ORDER BY P2Shift.sh_idShift';
     console.log(query);
     connection.query(query,
         function (err, result) {
