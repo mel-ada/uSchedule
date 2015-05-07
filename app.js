@@ -4,6 +4,11 @@ var express = require('express'),
     connect = require('connect'),
     bodyParser = require('body-parser');
 
+// login
+var passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy;
+
+
 // import routes
 var routes = require('./controller/home');
 var employee  = require('./controller/employee');
@@ -12,11 +17,16 @@ var level = require('./controller/level');
 var department = require('./controller/department');
 var station = require('./controller/station');
 var employeeshift = require('./controller/employeeshift');
+<<<<<<< Updated upstream
 var enterAvailability = require('./controller/availability');
+var login = require('./controller/login');
+=======
+//var enterAvailability = require('./controller/availability');
+var availability = require('./controller/availability'); 
 
 
 
-
+>>>>>>> Stashed changes
 
 // initialize express web application framework
 // http://expressjs.com/
@@ -30,6 +40,22 @@ app.use(bodyParser.urlencoded({
 
 // configure static directory
 app.use(express.static('public'));
+
+// login configuration
+passport.use(new LocalStrategy(
+  function(e_username, e_password, done) {
+    Employee.findOne({ e_username: e_username }, function (err, employee) {
+      if (err) { return done(err); }
+      if (!employee) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!employee.validPassword(e_password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, employee);
+    });
+  }
+));
 
 //configure view rendering engine
 app.set('view engine', 'ejs');
@@ -46,8 +72,18 @@ app.use('/level', level);
 app.use('/department', department);
 app.use('/station', station);
 app.use('/employeeshift', employeeshift);
-app.use('/enterAvailability', enterAvailability);
+//app.use('/enterAvailability', enterAvailability);
+app.use('/availability', availability); 
 
+<<<<<<< Updated upstream
+
+<<<<<<< HEAD
 app.set('port', 2000);
+=======
+app.set('port', 8029);
+=======
+app.set('port', 8004);
+>>>>>>> Stashed changes
+>>>>>>> 99a77d08baaf02df22c7125ff81ecb5d7b7a32aa
 app.listen(app.get('port'));
 console.log("Express server listening on port", app.get('port'));

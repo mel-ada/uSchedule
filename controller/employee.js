@@ -2,7 +2,6 @@ var express = require('express');
 var router  = express.Router();
 var db   = require('../models/db');
 
-
 /* View all in a <table> */
 router.get('/all', function (req, res) {
     db.GetAllEmployee(function (err, result) {

@@ -4,10 +4,7 @@ var db   = require('../models/db');
 
 
 
-
-
-
-
+//Update a specific employee's availability
 router.get('/enterAvailability', function(req, res){
         db.EnterAvailability(function (err, result) {
             if (err) throw err;
@@ -37,8 +34,8 @@ router.get('/enterAvailability', function(req, res){
 
 
 
-
-router.post('/viewAvailability', function (req, res) {
+//View changes made after updating an availability 
+router.post('/enterAvailability', function (req, res) {
     //db.ViewAvailability( req.body, function (err, result) {
       //      if (err) {
         //        throw err;
@@ -51,7 +48,21 @@ router.post('/viewAvailability', function (req, res) {
 //});
 
 
-/*
+
+
+
+
+//Select employee name                                                                                                  
+router.get('/selectEmployeeName', function (req, res) {                                                                    
+    db.EmployeeSSN( req.body, function (err, result) {                                                               
+            if (err) {                                                                                                   
+                throw err;                                                                                                
+            }                                                                                                                             res.render('selectEmployeeName.ejs', {rs: result});                                                         
+            }                                                                                                             
+    );                                                                                                                    
+});                                                                                                                       
+
+//View specific employee's availability
 router.post('/viewAvailability', function (req, res) {
     db.ViewAvailability( req.body, function (err, result) {
             if (err) {
@@ -61,7 +72,6 @@ router.post('/viewAvailability', function (req, res) {
             }
     );
 });
-*/
 
 
 module.exports = router;

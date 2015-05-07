@@ -1,0 +1,43 @@
+<% include header %>
+<% include navigation %>
+<% include styleForm %>
+<div id="section">
+
+    <div>
+        <h2>Employee Availability</h2>
+    </div>
+
+<style>
+#sep {
+    height: 2px;
+    background: #D1F0FF;
+    width: 1300px;
+    margin: 0px -25px;
+}
+</style>
+
+<div id="sep"> </div>
+<br>
+<br>
+
+    <% if(rs.length > 0) { %>
+        <form method="post" action="/enterAvailability/viewAvailability">
+        <label for="recNumber">Select Name:</label>
+        <select id="recNumber" name="recNumber">
+            <% for (var i=0; rs.length > i; i++) { %>
+                <option value="<%= rs[i].e_SSN %>">
+                    <%= rs[i].e_FN %> <%= rs[i].e_LN %>
+                </option>
+            <% } %>
+        </select>
+       <input type="submit">
+   </form>
+    <% } else { %>
+         No users are entered into the database.
+    <% } %>
+</div>
+
+<% include footer %>
+
+
+

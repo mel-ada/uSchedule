@@ -491,6 +491,35 @@ exports.Getst_name = function(st_name, callback) {
 
 
 //---------------------------------------------------------------------------
+//EMPLOYEE AVAILABILITY TABLE
+
+//Select availability for specific employee                                                                                                                                       
+exports.getAvailability = function(userInfo, callback) {
+    var query = 'SELECT a_day, a_StartTime, a_EndTime from P2Availability JOIN P2EmployeeAvailability ON P2Availability.a_ID = P2EmployeeAvailability.ea_ID JOIN P2Employee ON P2EmployeeAvailability.a_SSN = P2Employee.e_SSN WHERE P2Employee.e_SSN =' + userInfo.recNumber + ';';
+    console.log(query);
+    connection.query(query,
+        function (err, result) {
+            if(err) {
+                console.log(err);
+                callback(true);
+                return;
+            }
+            callback(false, result);
+        }
+    );
+}
+
+
+
+
+
+
+
+
+
+
+
+//---------------------------------------------------------------------------
 //EMPLOYEE SHIFT TABLE
 
 //Display all entries in Employee Shift Table
