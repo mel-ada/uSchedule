@@ -8,7 +8,6 @@ var express = require('express'),
 var passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy;
 
-
 // import routes
 var routes = require('./controller/home');
 var employee  = require('./controller/employee');
@@ -40,6 +39,7 @@ app.use(bodyParser.urlencoded({
 
 // configure static directory
 app.use(express.static('public'));
+app.use(passport.initialize());
 
 // login configuration
 passport.use(new LocalStrategy(
@@ -77,6 +77,7 @@ app.use('/availability', availability);
 
 <<<<<<< Updated upstream
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 app.set('port', 2000);
 =======
@@ -85,5 +86,8 @@ app.set('port', 8029);
 app.set('port', 8004);
 >>>>>>> Stashed changes
 >>>>>>> 99a77d08baaf02df22c7125ff81ecb5d7b7a32aa
+=======
+app.set('port', 2000);
+>>>>>>> Stashed changes
 app.listen(app.get('port'));
 console.log("Express server listening on port", app.get('port'));

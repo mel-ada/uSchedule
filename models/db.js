@@ -55,10 +55,9 @@ exports.weeklySchedule = function(){
 
 //------------------------------------------------------
 //LOGIN
-
-
 exports.GetLogin = function(employeeInfo, callback) {
-    var query = 'Select  e_FN, e_LN from P2Employee WHERE e_username=' + employeeInfo.e_username + ';';
+    var query = 'Select  e_FN, e_LN from P2Employee WHERE e_username=' + employeeInfo.e_username + 
+                ' AND e_password=' + employeeInfo.e_password + ';';
     console.log(query);
     connection.query(query,
         function (err, result) {

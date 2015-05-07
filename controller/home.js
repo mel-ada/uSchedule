@@ -29,6 +29,7 @@ router.get('/loginForm', function(req, res){
     res.render('loginForm.ejs', {action: '/displayLoginData'});
 });
 
+/*
 router.post('/loginSuccess', function(req, res) {
     console.log(req.body);
     db.GetLogin(req.query.e_username,
@@ -39,7 +40,7 @@ router.post('/loginSuccess', function(req, res) {
 }
 );
 });
-
+*/
 
 /* View all schedule in a <table> */
 router.get('/allSchedule', function (req, res) {
